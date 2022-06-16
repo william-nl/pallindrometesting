@@ -6,38 +6,49 @@ describe('test pallindromes', () => {
     beforeAll(() => setup());
     afterAll(() => tearDown());
 
-    test('String: abba', () => {
+    test('Alpha characters only', () => {
         expect(isPallindrome("abba")).toBe(true)
     });
 
-    test('String: abca should not pass', () => {
+    test('Not a pallindrome', () => {
         expect(isPallindrome("abca")).not.toBe(true)
     });
 
-    test('String: null', () => {
+    test('Empty string', () => {
         expect(isPallindrome("")).toBe(true)
     });
-    test('String: evil olive', () => {
+    test('Whitespace', () => {
         expect(isPallindrome("evil olive")).toBe(true)
     });
-    test('String: I did, did I?', () => {
+    test('Punctuation and white space', () => {
         expect(isPallindrome("I did, did I?")).toBe(true)
     });
-    test('String: Draw, O coward!', () => {
+    test('Punctuation and white space', () => {
         expect(isPallindrome("Draw, O coward!")).toBe(true)
     });
-    test('String: 12321', () => {
+    test('Numeric characters only', () => {
         expect(isPallindrome("12321")).toBe(true)
     });
-    test('String:     ', () => {
+    test('Multiple whitespaces', () => {
         expect(isPallindrome("     ")).toBe(true)
     });
-    test('String: $%^&*   ;:{}', () => {
+    test('Punctuation and white space', () => {
         expect(isPallindrome("$%^&*   ;:{}")).toBe(true)
     });
-    test('String: A lot not new I saw as I went on to L.A.', () => {
+    test('Long phrase', () => {
         expect(isPallindrome("A lot not new I saw as I went on to L.A.")).toBe(true)
     });
+    test('Incorrect type input Number should be rejected', () => {
+        expect(isPallindrome(123)).toBe(false);
+    });
+
+    test('Incorrect type input Null should be rejected', () => {
+        expect(isPallindrome()).toBe(false);
+    });
+
+    test('Incorrect type input Float should be rejected', () => {
+        expect(isPallindrome()).toBe(false);
+    })
 
 
 
